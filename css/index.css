@@ -1,0 +1,22 @@
+@import url(./Header.css);
+@import url(./Carousel.css);
+@import url(./popularProduct.css);
+@import url(./teaserProduct.css);
+@import url(./newArrival.css);
+
+/* libary  */
+/* owl carousel */
+@import url(../Lib/owlCarousel/owl.carousel.min.css);
+@import url(../Lib/owlCarousel/owl.theme.default.min.css);
+/* Grid system */
+@import url(../Lib/Grid.css);
+
+*{ 
+    /* xoa mac dinh cua trinh duyet chorme  */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: "Noto Sans","AdihausDIN","Helvetica",Arial,sans-serif !important;
+}

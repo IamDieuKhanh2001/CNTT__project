@@ -1,0 +1,269 @@
+header {
+  display: flex;
+  height: 100px;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  background-color: #fff;
+}
+.nav__icon {
+  display: block;
+}
+.nav__icon a{
+  text-decoration: none;
+  color: black;
+}
+.logo__store {
+  font-size: 20px;
+  padding: 10px 10px;
+}
+.nav__pc {
+  margin: auto 1rem;
+  display: flex;
+}
+.nav__pc-register {
+  list-style: none;
+  margin-left: 13rem;
+  display: flex;
+}
+.nav__pc-register a {
+  text-decoration: none;
+}
+.nav__pc-list {
+  list-style: none;
+}
+.nav__pc-list a {
+  text-decoration: none;
+}
+.nav__pc-link {
+  display: inline;
+  margin: 20px;
+  padding: 25px 0;
+  font-size: 1.5rem;
+  font-weight: 550;
+}
+.nav__pc-link-register {
+  margin: 0 15px;
+}
+.nav__pc-link-register button {
+  color: white;
+  background-color: #337931;
+  border: none;
+  padding: 0.5rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.nav__color__line {
+  width: 100%;
+  height: 3px;
+  background-image: linear-gradient(
+    to right,
+    red,
+    orange,
+    yellow,
+    #56ffaa,
+    #ffffaa,
+    #ffd4aa,
+    purple
+  );
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+/* mobile tablet */
+.nav__mobile-btn{
+  display: none;
+}
+.nav__bar-btn {
+  display: flex;
+  justify-content: space-evenly;
+  width: 50px;
+  height: 50px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 6px;
+  font-size: 35px;
+  text-align: center;
+}
+.nav__bar-btn i{
+  margin: auto 0;
+}
+.nav__input:checked ~ .nav__overlay {
+  display: block;
+}
+.nav__input:checked ~ .nav__mobile {
+  transform: translateX(0%);
+  opacity: 1;
+}
+.nav__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: none;
+  animation: fadeIn linear 0.2s;
+  z-index: 100;
+}
+.logo__store__mobile {
+  font-size: 25px;
+  padding: 10px 10px;
+  display: block;
+}
+.nav__mobile {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 320px;
+  max-width: 100%;
+  background-color: white;
+  display: block;
+  transform: translateX(100%);
+  opacity: 0;
+  transition: all linear 0.2s;
+}
+.nav__mobile-list {
+  list-style: none;
+}
+.nav__mobile-list a {
+  text-decoration: none;
+}
+.nav__mobile-link {
+  margin: 30px auto;
+  margin-left: 20px;
+  font-size: 1.5rem;
+  font-weight: 550;
+}
+.nav__mobile-link-register {
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+.nav__mobile-link-register button {
+  color: white;
+  background-color: #337931;
+  border: none;
+  padding: 0.5rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.nav__mobile-close {
+  text-align: center;
+}
+
+/* cart popup  */
+.popup__cart-title{
+  margin: 10px 0; 
+  display: flex;
+  justify-content: space-evenly;
+}
+.popup__cart{
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  width: 320px;
+  max-width: 100%;
+  transform: translateX(100%);
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.popup__input:checked ~ .cart__overlay {
+  display: block;
+}
+.popup__input:checked ~ .popup__cart {
+  transform: translateX(0%);
+  opacity: 1;
+}
+.cart__overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: none;
+  animation: fadeIn linear 0.2s;
+  z-index: 90;
+}
+
+.popup__cart-item{
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  padding-top: 10px;
+}
+.popup__cart-item-img{
+  width: 120px;
+  height: 120px;
+}
+.popup__cart-item-img img{
+  width: 100%;
+}
+.popup__cart-item-des{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.popup__cart-item-edit button{
+  font-size: 20px;
+  padding: 8px;
+  background-color: #F05D40;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+.popup__cart-purchasing{
+  box-sizing: border-box;
+  margin-top: 20px;
+}
+.popup__cart-purchasing button{
+  width: 100%;
+  padding: 5px;
+  background-color: greenyellow;
+  border: none;
+}
+/* pc screen  */
+@media (max-width: 1536px) {
+}
+
+/* mobile screen  */
+@media (max-width: 1024px) {
+  .nav__bar-btn {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+  }
+  .nav__mobile-btn{
+    display: block;
+  }
+  .nav__pc {
+    display: none;
+  }
+  .nav__icon {
+    display: none;
+  }
+  .nav__mobile-cart button {
+    display: block;
+    position: fixed;
+    right: 80px;
+    top: 30px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

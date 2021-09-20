@@ -1,0 +1,16 @@
+footer{
+    padding: 20px 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.footer__item ul{
+    list-style: none;
+}
+.footer__item ul li a{
+    text-decoration: none;
+    color: #ababab;
+}
+.footer__content{
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+}

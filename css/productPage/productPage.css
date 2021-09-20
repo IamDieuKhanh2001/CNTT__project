@@ -1,0 +1,17 @@
+@import url(../Header.css);
+@import url(./products.css);
+@import url(./carousel.css);
+@import url(../contact.css);
+@import url(../Footer.css);
+/* libary */
+/* grid system */
+@import url(../../Lib/Grid.css);
+*{ 
+    /* xoa mac dinh cua trinh duyet chorme  */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: "Noto Sans","AdihausDIN","Helvetica",Arial,sans-serif !important;
+}

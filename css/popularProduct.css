@@ -1,0 +1,22 @@
+.popular__products{
+    padding: 20px 0;
+}
+.popular__title h1{
+    padding-bottom: 25px;
+    padding-left: 10px;
+}
+.popular__keyWord{
+    text-align: center;
+    /* padding: 0 200px */
+}
+.keyWord__title{
+    text-decoration: none;
+    color: black;
+}
+.keyWord__title p{
+    border: 1px solid black;
+    padding: 10px 0;
+}
+.keyWord__title:hover{
+    color: #989899;
+}

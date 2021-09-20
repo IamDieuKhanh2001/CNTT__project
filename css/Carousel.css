@@ -1,0 +1,61 @@
+.carousel{
+    padding-top: 100px;
+}
+.carousel__title {
+  position: absolute;
+  top: 30%;
+  left: 9%;
+  z-index: 2;
+}
+
+.carousel__title-logo{
+    max-width: 60%;
+    max-height: 130px;
+}
+.carousel__title-name {
+  font-weight: 600;
+  font-size: 42px;
+  font-family: "Noto Sans","AdihausDIN","Helvetica",Arial,sans-serif !important;
+}
+.carousel__title-summary p{
+    font-size: 20;
+    line-height: 24px;
+    font-family: "Noto Sans","AdihausDIN","Helvetica",Arial,sans-serif !important;
+    font-style: normal;
+    font-weight: normal;
+    color: inherit;
+}
+.carousel__title-purchase {
+    margin: 15px 0;
+}
+.carousel__title-purchase button{
+    border: none;
+    background-color: #000000;
+    text-transform: uppercase;
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    height: 50px;
+    padding: 21px;
+    position: relative;
+    z-index: 2;
+}
+
+.carousel__video video {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 1024px){
+    .carousel__title{
+        top: 10%;
+        left: 2%;
+    }
+}
+@media (max-width: 600px){
+    .carousel__title{
+        position: relative;
+    }
+}

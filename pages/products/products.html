@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>products</title>
+    <!-- css  -->
+    <link rel="stylesheet" href="../../css/productPage/productPage.css" />
+    <!-- font aswsome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <!-- gg font  -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <!-- nav pc giao diện -->
+        <div class="nav__icon">
+            <div class="logo__store">
+                <h1><a href="../../index.html">The shoes store</a></h1>
+            </div>
+        </div>
+        <nav class="nav__pc">
+            <ul class="nav__pc-list">
+                <li class="nav__pc-link"><a href="#">Men</a></li>
+                <li class="nav__pc-link"><a href="#">Women</a></li>
+                <li class="nav__pc-link"><a href="#">Boys</a></li>
+                <li class="nav__pc-link"><a href="#">Girls</a></li>
+                <li class="nav__pc-link"><a href="#">About us</a></li>
+                <li class="nav__pc-link"><label for="popup__cart-checkbox" onclick="renderCart()">My cart</label></li>
+            </ul>
+            <ul class="nav__pc-register">
+                <li class="nav__pc-link-register"><button>Đăng nhập</button></li>
+                <li class="nav__pc-link-register">
+                    <button style="background-color: red">Đăng kí</button>
+                </li>
+            </ul>
+        </nav>
+        <!-- xừ lí nhấn nút bar hiện nav mobile  -->
+        <div for="nav-mobile-input" class="nav__mobile-btn">
+            <label for="nav-mobile-input" class="nav__bar-btn"><i class="fas fa-bars"></i></label>
+        </div>
+        <!-- Check box xử lí ẩn hiện nav  -->
+        <input type="checkbox" class="nav__input" id="nav-mobile-input" hidden />
+        <!-- background đen phủ toàn màn hình khi đã checkinput mở nav  -->
+        <label for="nav-mobile-input" class="nav__overlay"></label>
+        <!-- Giao diện nav mobile  -->
+        <nav class="nav__mobile">
+            <div class="logo__store__mobile">
+                <h1>The shoes store</h1>
+            </div>
+            <ul class="nav__mobile-list">
+                <li class="nav__mobile-link"><a href="#">Men</a></li>
+                <li class="nav__mobile-link"><a href="#">Women</a></li>
+                <li class="nav__mobile-link"><a href="#">Boys</a></li>
+                <li class="nav__mobile-link"><a href="#">Girls</a></li>
+                <li class="nav__mobile-link"><a href="#">About us</a></li>
+                <li class="nav__pc-link"><label for="popup__cart-checkbox">My cart</label></li>
+                <li class="nav__mobile-link-register"><button>Đăng nhập</button></li>
+                <li class="nav__mobile-link-register">
+                    <button style="background-color: red">Đăng kí</button>
+                </li>
+            </ul>
+            <div class="nav__mobile-close">
+                <!-- label xử lí check input nav về vị trí cũ, ẩn overlay-->
+                <label for="nav-mobile-input">Back<i class="fas fa-arrow-circle-right"></i></label>
+            </div>
+        </nav>
+        <div class="nav__color__line"></div>
+        <!-- Check box xử lí ẩn hiện cart list  -->
+        <input type="checkbox" class="popup__input" id="popup__cart-checkbox" hidden />
+        <div class="popup__cart">
+            <div class="popup__cart-title">
+                <h3>Giỏ hàng <i class="far fa-cart-plus"></i></h3>
+                <!-- labe xử lí check inpit , đưa element về vị trí cũ  -->
+                <label for="popup__cart-checkbox">Back<i class="fas fa-arrow-circle-right"></i></label>
+            </div>
+            <div class="popup__cart-content" id="UI__cart">
+                <div class="popup__cart-item">
+                    <div class="popup__cart-item-img">
+                        <img src="../../img/Products/shoe3.jpg" alt="">
+                    </div>
+                    <div class="popup__cart-item-des">
+                        <div class="popup__cart-item-name">
+                            <strong>Shoe 1</strong>
+                        </div>
+                        <div class="popup__cart-item-quantity">
+                            <p>Số lượng x1</p>
+                        </div>
+                        <div class="popup__cart-item-edit">
+                            <button><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="popup__cart-purchasing">
+                <button onclick="handlePurchasing()">Thanh toán</button>
+            </div>
+        </div>
+        <!-- background bao phủ toàn màn hình khi cart list hiện  -->
+        <!-- Nhấn vào overlay đưa element về vị trí cũ  -->
+        <label for="popup__cart-checkbox" class="cart__overlay"></label>
+    </header>
+    <section class="header__space__standing" style="padding-top: 100px;">
+        <!-- Vị trí khoảng trống ngăn header đứng đầu tiên và che các section khác khi gán z-inđez và fix   -->
+    </section>
+    <section class="carousel">
+        <div class="carousel__video">
+            <video autoplay muted>
+                <source src="../../img/productPage/video/carousel__video.mp4" type="video/mp4" />
+            </video>
+        </div>
+        <div class="row">
+            <div class="carousel__title col l-3 m-6 c-12">
+                <h2 class="carousel__title-name ">THE 4DFWD IS HERE</h2>
+                <div class="carousel__title-summary">
+                    <p>Cách mạng công nghệ cho trải nghiệm chạy bộ hoàn toàn mới. Tiếp tục tiến bước.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="products">
+        <div class="grid wide">
+            <h3>Tìm kiếm sản phẩm</h3>
+            <div class="products__search">
+                <select class="form-control" id="sortID">
+                    <option value="">Sắp xếp theo</option>
+                    <option value="AZ">A - Z</option>
+                    <option value="ZA">Z - A</option>
+                </select>
+                <select class="form-control" id="fitterID">
+                    <option value="">Nhãn hiệu</option>
+                    <option value="Adidas">Adidas</option>
+                    <option value="Nike">Nike</option>
+                </select>
+                <label for="search__bar"><i class="fas fa-search"></i></label>
+                <input id="search__bar" type="text" />
+            </div>
+            <div class="products__content">
+                <h1>Các sản phẩm</h1>
+                <div class="row" id="UI_sanPham">
+                    <div class="products__item col l-3 m-4 c-6">
+                        <div class="products__item-img">
+                            <img src="../../img/Products/shoe3.jpg" alt="" />
+                        </div>
+                        <div class="products__item-info">
+                            <p class="products__item-type">Originals</p>
+                            <h3 class="products__item-title">NMD_R1</h3>
+                            <p class="products__item-price">$3.400.000</p>
+                            <div class="product__item-favorite">
+                                <i class="far fa-heart" title="change__icon__when__click"></i>
+                            </div>
+                            <div class="products__item-button">
+                                <button>add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="contact">
+        <div class="wide grid">
+            <div class="row">
+                <div class="contact-content col l-6">
+                    <h1>ĐĂNG KÝ NHẬN THÔNG TIN CẬP NHẬT VÀ ƯU ĐÃI QUA EMAIL</h1>
+                </div>
+                <div class="contact-btn col l-6">
+                    <button>Đăng kí nhận bản tin</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="wide grid">
+            <div class="footer__content">
+                <div class="row">
+                    <div class="footer__item col l-3 m-3 c-12">
+                        <h2>SẢN PHẨM</h2>
+                        <ul>
+                            <li><a href="">Giày</a></li>
+                            <li><a href="">Quần áo</a></li>
+                            <li><a href="">Phụ kiện</a></li>
+                        </ul>
+
+                    </div>
+                    <div class="footer__item col l-3 m-3 c-12">
+                        <h2>THỂ THAO</h2>
+                        <ul>
+                            <li><a href="">Lorem ipsum dolor sit amet .</a></li>
+                            <li><a href="">Lorem ipsum dolor sit amet .</a></li>
+                            <li><a href="">Lorem ipsum dolor sit amet .</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__item col l-3 m-3 c-12">
+                        <h2>BỘ SƯU TẬP</h2>
+                        <ul>
+                            <li><a href="">Lorem ipsum dolor sit amet .</a></li>
+                            <li><a href="">Lorem ipsum dolor sit amet .</a></li>
+                            <li><a href="">Lorem ipsum dolor sit amet .</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__item col l-3 m-3 c-12">
+                        <h2>HỖ TRỢ</h2>
+                        <ul>
+                            <li><a href="">Lorem ipsum dolor sit amet .</a></li>
+                            <li><a href="">Lorem ipsum dolor sit amet .</a></li>
+                            <li><a href="">Lorem ipsum dolor sit amet .</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="ute__logo">
+                <img src="../../img/logo_ute.png" alt="">
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"
+    integrity="sha512-VZ6m0F78+yo3sbu48gElK4irv2dzPoep8oo9LEjxviigcnnnNvnTOJRSrIhuFk68FMLOpiNz+T77nNY89rnWDg=="
+    crossorigin="anonymous"></script>
+<script src="../../js/product.js"></script>
+<script src="../../js/main.js"></script>
+</html>

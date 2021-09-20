@@ -1,0 +1,82 @@
+.new__arrival {
+  padding-left: 20px;
+}
+.new__arrival__content{
+  margin-top: 20px;
+}
+.new__arrival-item {
+  text-decoration: none;
+}
+.item{
+  width: 292px;
+}
+.item:hover {
+  border: 1px solid black;
+}
+.new__arrival-item-img{
+  width: 290px;
+  height: 292px;
+}
+
+.new__arrival-item-info {
+  padding-top: 10px;
+  height: 100px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.new__arrival-item-type {
+  color: black;
+}
+.new__arrival-item-title {
+  color: black;
+}
+.new__arrival-item-price {
+  color: black;
+}
+/* owl lib config  */
+.owl-carousel .owl-nav button.owl-next,
+.owl-carousel .owl-nav button.owl-prev,
+.owl-carousel button.owl-dot {
+  width: 50px !important;
+  height: 50px !important;
+}
+.owl-carousel .owl-nav button.owl-prev {
+  position: relative;
+  left: -45.3%;
+  top: -300px;
+  width: 54px;
+  height: 54px;
+  background: white !important;
+  font-size: 35px !important;
+  color: black;
+  border-radius: 0px !important;
+  border: 1px solid black !important;
+}
+.owl-carousel .owl-nav button.owl-next {
+  position: relative;
+  right: -45.3%;
+  top: -300px;
+  width: 54px;
+  height: 54px;
+  background: white !important;
+  font-size: 35px !important;
+  color: black;
+  border-radius: 0px !important;
+  border: 1px solid black !important;
+}
+.owl-theme .owl-nav{
+  margin: 0;
+  height: 5px;
+}
+.owl-theme .owl-nav [class*="owl-"]:hover {
+  background-color: black !important;
+}
+.owl-theme .owl-dots .owl-dot span {
+  width: 30px !important;
+  height: 2px !important;
+  border-radius: 0px !important;
+}
+.owl-theme .owl-dots .owl-dot.active span,
+.owl-theme .owl-dots .owl-dot:hover span {
+  height: 5px !important;
+}

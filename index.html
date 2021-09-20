@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QK store</title>
+    <!-- css  -->
+    <link rel="stylesheet" href="./css/index.css">
+    <!-- font aswsome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <!-- gg font  -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <!-- nav pc giao diện -->
+        <div class="nav__icon">
+            <div class="logo__store">
+                <h1><a href="#">The shoes store</a></h1>
+            </div>
+        </div>
+        <nav class="nav__pc">
+            <ul class="nav__pc-list">
+                <li class="nav__pc-link"><a href="./pages/products/products.html">Men</a></li>
+                <li class="nav__pc-link"><a href="#">Women</a></li>
+                <li class="nav__pc-link"><a href="#">Boys</a></li>
+                <li class="nav__pc-link"><a href="#">Girls</a></li>
+                <li class="nav__pc-link"><a href="#">About us</a></li>
+                <li class="nav__pc-link"><label for="popup__cart-checkbox">My cart</label></li>
+            </ul>
+            <ul class="nav__pc-register">
+                <li class="nav__pc-link-register"><button>Đăng nhập</button></li>
+                <li class="nav__pc-link-register">
+                    <button style="background-color: red">Đăng kí</button>
+                </li>
+            </ul>
+        </nav>
+        <!-- xừ lí nhấn nút bar hiện nav mobile  -->
+        <div for="nav-mobile-input" class="nav__mobile-btn">
+            <label for="nav-mobile-input" class="nav__bar-btn"><i class="fas fa-bars"></i></label>
+        </div>
+        <!-- Check box xử lí ẩn hiện nav  -->
+        <input type="checkbox" class="nav__input" id="nav-mobile-input" hidden />
+        <!-- background đen phủ toàn màn hình khi đã checkinput mở nav  -->
+        <label for="nav-mobile-input" class="nav__overlay"></label>
+        <!-- Giao diện nav mobile  -->
+        <nav class="nav__mobile">
+            <div class="logo__store__mobile">
+                <h1>The shoes store</h1>
+            </div>
+            <ul class="nav__mobile-list">
+                <li class="nav__mobile-link"><a href="#">Men</a></li>
+                <li class="nav__mobile-link"><a href="#">Women</a></li>
+                <li class="nav__mobile-link"><a href="#">Boys</a></li>
+                <li class="nav__mobile-link"><a href="#">Girls</a></li>
+                <li class="nav__mobile-link"><a href="#">About us</a></li>
+                <li class="nav__pc-link"><label for="popup__cart-checkbox">My cart</label></li>
+                <li class="nav__mobile-link-register"><button>Đăng nhập</button></li>
+                <li class="nav__mobile-link-register">
+                    <button style="background-color: red">Đăng kí</button>
+                </li>
+            </ul>
+            <div class="nav__mobile-close">
+                <!-- label xử lí check input nav về vị trí cũ, ẩn overlay-->
+                <label for="nav-mobile-input">Back<i class="fas fa-arrow-circle-right"></i></label>
+            </div>
+        </nav>
+        <div class="nav__color__line"></div>
+        <!-- Check box xử lí ẩn hiện cart list  -->
+        <input type="checkbox" class="popup__input" id="popup__cart-checkbox" hidden/>
+        <div class="popup__cart">
+            <div class="popup__cart-title">
+                <h3>Giỏ hàng <i class="far fa-cart-plus"></i></h3>
+                <!-- labe xử lí check inpit , đưa element về vị trí cũ  -->
+                <label for="popup__cart-checkbox">Back<i class="fas fa-arrow-circle-right"></i></label>
+            </div>
+            <div class="popup__cart-content">
+                <div class="popup__cart-item">
+                    <div class="popup__cart-item-img">
+                        <img src="../../img/Products/shoe3.jpg" alt="">
+                    </div>
+                    <div class="popup__cart-item-des">
+                        <div class="popup__cart-item-name">
+                            <strong>Shoe 1</strong>
+                        </div>
+                        <div class="popup__cart-item-quantity">
+                            <p>Số lượng x1</p>
+                        </div>
+                        <div class="popup__cart-item-edit">
+                            <button><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup__cart-item">
+                    <div class="popup__cart-item-img">
+                        <img src="../../img/Products/shoe3.jpg" alt="">
+                    </div>
+                    <div class="popup__cart-item-des">
+                        <div class="popup__cart-item-name">
+                            <strong>Shoe 1</strong>
+                        </div>
+                        <div class="popup__cart-item-quantity">
+                            <p>Số lượng x1</p>
+                        </div>
+                        <div class="popup__cart-item-edit">
+                            <button><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- background bao phủ toàn màn hình khi cart list hiện  -->
+        <!-- Nhấn vào overlay đưa element về vị trí cũ  -->
+        <label for="popup__cart-checkbox" class="cart__overlay"></label>
+    </header>
+    <section class="carousel">
+        <div class="carousel__video">
+            <video src="./img/video1.mp4" autoplay muted></video>
+        </div>
+        <div class="row">
+            <div class="carousel__title col l-3 m-6 c-12">
+                <img src="./img/video1__logo.png" alt="logo" class="carousel__title-logo">
+                <h2 class="carousel__title-name ">STAN SMITH, MÃI MÃI</h2>
+                <div class="carousel__title-summary">
+                    <p>Phiên bản bền vững từ giày Stan Smith biểu
+                        tượng, lấy cảm hứng từ chú ếch Kermit.</p>
+                </div>
+                <div class="carousel__title-purchase">
+                    <button>Mua ngay <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <section class="popular__products">
+        <div class="grid wide">
+            <div class="row">
+                <div class="popular__title l-o-4 m-8 m-o-3">
+                    <h1>POPULAR RIGHT NOW</h1>
+                </div>
+                <div class="popular__keyWord col l-12">
+                    <div class="row">
+                        <a href="" class="keyWord__title col l-3 m-3 c-6">
+                            <p>ULTRABOOST 21 <i class="fal fa-long-arrow-right"></i></p>
+                        </a>
+                        <a href="" class="keyWord__title col l-2 m-2 c-3">
+                            <p>RMD <i class="fal fa-long-arrow-right"></i></p>
+                        </a>
+                        <a href="" class="keyWord__title col l-3 m-3 c-6">
+                            <p>SUPERSTAR <i class="fal fa-long-arrow-right"></i></p>
+                        </a>
+                        <a href="" class="keyWord__title col l-2 m-2 c-3">
+                            <p>SLIDES <i class="fal fa-long-arrow-right"></i></i></p>
+                        </a>
+                        <a href="" class="keyWord__title col l-2 m-2 c-3">
+                            <p>DÉP <i class="fal fa-long-arrow-right"></i></p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="popular__content">
+                <div class="popular__item">
+                    <div class="popular__item-card">
+                        <div class="popular__item-card-img"><img src="" alt=""></div>
+                        <div class="popular__item-card-title">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="teaser__products">
+        <div class="grid wide">
+            <div class="teaser__content">
+                <div class="row">
+                    <div class="col l-6 m-6 c-12">
+                        <div class="teaser__item">
+                            <div class="teaser__item-img">
+                                <img src="./img/runningshoe.jpg" alt="">
+                            </div>
+                            <div class="teaser__item-info">
+                                <h1 class="teaser__item-title">BỘ SƯU TẬP PHARRELL WILLIAMS TRIPLE BLACK</h1>
+                                <p class="teaser__item-description">The Future of Performance Running is here</p>
+                                <button class="teaser__item-purchasing">SHOP NOW</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col l-6 m-6 c-12">
+                        <div class="teaser__item">
+                            <div class="teaser__item-img">
+                                <img src="./img/runningshoe2.jpg" alt="">
+                            </div>
+                            <div class="teaser__item-info">
+                                <h1 class="teaser__item-title">UTRA4D</h1>
+                                <p class="teaser__item-description">The Future of Performance Running is here</p>
+                                <button class="teaser__item-purchasing">SHOP NOW</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="new__arrival">
+        <div class="grid wide">
+            <h1>NEW ARRIVALS</h1>
+            <div class="new__arrival__content">
+                <div class="owl-carousel owl-theme">
+                    <div class="item">
+                        <a href="" class="new__arrival-item">
+                            <div class="new__arrival-item-img">
+                                <img src="./img/Products/shoe3.jpg" alt="">
+                            </div>
+                            <div class="new__arrival-item-info">
+                                <p class="new__arrival-item-type">Originals</p>
+                                <h3 class="new__arrival-item-title">NMD_R1</h3>
+                                <p class="new__arrival-item-price">$3.400.000</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="" class="new__arrival-item">
+                            <div class="new__arrival-item-img">
+                                <img src="./img/Products/shoe2.jpg" alt="">
+                            </div>
+                            <div class="new__arrival-item-info">
+                                <p class="new__arrival-item-type">Originals</p>
+                                <h3 class="new__arrival-item-title">NMD_R1</h3>
+                                <p class="new__arrival-item-price">$3.400.000</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="" class="new__arrival-item">
+                            <div class="new__arrival-item-img">
+                                <img src="./img/Products/shoe1.jpg" alt="">
+                            </div>
+                            <div class="new__arrival-item-info">
+                                <p class="new__arrival-item-type">Originals</p>
+                                <h3 class="new__arrival-item-title">NMD_R1</h3>
+                                <p class="new__arrival-item-price">$3.400.000</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="" class="new__arrival-item">
+                            <div class="new__arrival-item-img">
+                                <img src="./img/Products/shoe3.jpg" alt="">
+                            </div>
+                            <div class="new__arrival-item-info">
+                                <p class="new__arrival-item-type">Originals</p>
+                                <h3 class="new__arrival-item-title">NMD_R1</h3>
+                                <p class="new__arrival-item-price">$3.400.000</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="" class="new__arrival-item">
+                            <div class="new__arrival-item-img">
+                                <img src="./img/Products/shoe3.jpg" alt="">
+                            </div>
+                            <div class="new__arrival-item-info">
+                                <p class="new__arrival-item-type">Originals</p>
+                                <h3 class="new__arrival-item-title">NMD_R1</h3>
+                                <p class="new__arrival-item-price">$3.400.000</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="" class="new__arrival-item">
+                            <div class="new__arrival-item-img">
+                                <img src="./img/Products/shoe3.jpg" alt="">
+                            </div>
+                            <div class="new__arrival-item-info">
+                                <p class="new__arrival-item-type">Originals</p>
+                                <h3 class="new__arrival-item-title">NMD_R1</h3>
+                                <p class="new__arrival-item-price">$3.400.000</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="" class="new__arrival-item">
+                            <div class="new__arrival-item-img">
+                                <img src="./img/Products/shoe3.jpg" alt="">
+                            </div>
+                            <div class="new__arrival-item-info">
+                                <p class="new__arrival-item-type">Originals</p>
+                                <h3 class="new__arrival-item-title">NMD_R1</h3>
+                                <p class="new__arrival-item-price">$3.400.000</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="" class="new__arrival-item">
+                            <div class="new__arrival-item-img">
+                                <img src="./img/Products/shoe3.jpg" alt="">
+                            </div>
+                            <div class="new__arrival-item-info">
+                                <p class="new__arrival-item-type">Originals</p>
+                                <h3 class="new__arrival-item-title">NMD_R1</h3>
+                                <p class="new__arrival-item-price">$3.400.000</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="" class="new__arrival-item">
+                            <div class="new__arrival-item-img">
+                                <img src="./img/Products/shoe3.jpg" alt="">
+                            </div>
+                            <div class="new__arrival-item-info">
+                                <p class="new__arrival-item-type">Originals</p>
+                                <h3 class="new__arrival-item-title">NMD_R1</h3>
+                                <p class="new__arrival-item-price">$3.400.000</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="" class="new__arrival-item">
+                            <div class="new__arrival-item-img">
+                                <img src="./img/Products/shoe3.jpg" alt="">
+                            </div>
+                            <div class="new__arrival-item-info">
+                                <p class="new__arrival-item-type">Originals</p>
+                                <h3 class="new__arrival-item-title">NMD_R1</h3>
+                                <p class="new__arrival-item-price">$3.400.000</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="" class="new__arrival-item">
+                            <div class="new__arrival-item-img">
+                                <img src="./img/Products/shoe3.jpg" alt="">
+                            </div>
+                            <div class="new__arrival-item-info">
+                                <p class="new__arrival-item-type">Originals</p>
+                                <h3 class="new__arrival-item-title">NMD_R1</h3>
+                                <p class="new__arrival-item-price">$3.400.000</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="./js/product.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"
+    integrity="sha512-VZ6m0F78+yo3sbu48gElK4irv2dzPoep8oo9LEjxviigcnnnNvnTOJRSrIhuFk68FMLOpiNz+T77nNY89rnWDg=="
+    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="./Lib/owlCarousel/owl.carousel.min.js"></script>
+    <script>
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            responsive: {
+                0: {
+                    items: 2,
+                    nav: false
+                },
+                600: {
+                    items: 2,
+                    nav: false
+                },
+                1000: {
+                    items: 4,
+                    nav: true
+                }
+            }
+        })
+    </script>
+    <!-- <embed with="0" height="0" src="./img/09 Freljord.mp3" autostart="true" loop="true"> -->
+</body>
+
+</html>
