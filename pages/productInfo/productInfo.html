@@ -2,18 +2,20 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>products</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- css  -->
-    <link rel="stylesheet" href="../../css/productPage/productPage.css" />
+    <link rel="stylesheet" href="../../css/productInfoPage/productInfoPage.css">
+    </link>
     <!-- font aswsome -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- gg font  -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet" />
+
+    <title>Product info</title>
 </head>
 
 <body>
@@ -31,8 +33,7 @@
                 <li class="nav__pc-link"><a href="#">Boys</a></li>
                 <li class="nav__pc-link"><a href="#">Girls</a></li>
                 <li class="nav__pc-link"><a href="#">About us</a></li>
-                <li class="nav__pc-link"><label for="popup__cart-checkbox" onclick="handleRenderCartUI()">My cart</label></li>
-                
+                <li class="nav__pc-link"><label for="popup__cart-checkbox" onclick="renderCart()">My cart</label></li>
             </ul>
             <ul class="nav__pc-register">
                 <li class="nav__pc-link-register"><button>Đăng nhập</button></li>
@@ -81,33 +82,26 @@
                 <label for="popup__cart-checkbox">Back<i class="fas fa-arrow-circle-right"></i></label>
             </div>
             <div class="popup__cart-content" id="UI__cart">
-                <!-- cart UI render  -->
-                <!-- <div class="popup__cart-item">
+                <div class="popup__cart-item">
                     <div class="popup__cart-item-img">
                         <img src="../../img/Products/shoe3.jpg" alt="">
                     </div>
                     <div class="popup__cart-item-des">
                         <div class="popup__cart-item-name">
                             <strong>Shoe 1</strong>
-                            <br>
-                            <strong>1000000 VND</strong>
                         </div>
                         <div class="popup__cart-item-quantity">
                             <p>Số lượng x1</p>
                         </div>
                         <div class="popup__cart-item-edit">
-                            <button><i class="fas fa-arrow-left"></i></button>
-                            <button><i class="fas fa-arrow-right"></i></button>
+                            <button><i class="fas fa-trash-alt"></i></button>
                         </div>
                     </div>
-                </div> -->
+                </div>
+
             </div>
-            <div class="popup__cart-purchasing" id="popup__cart-purchasing">
-                <strong id="popup__cart-priceSumption"></strong>
+            <div class="popup__cart-purchasing">
                 <button onclick="handlePurchasing()">Thanh toán</button>
-            </div>
-            <div class="popup__cart-showEmpty" id="popup__cart-showEmpty">
-                <img src="../../img/emtyCartImg.png" alt="">
             </div>
         </div>
         <!-- background bao phủ toàn màn hình khi cart list hiện  -->
@@ -117,71 +111,96 @@
     <section class="header__space__standing" style="padding-top: 100px;">
         <!-- Vị trí khoảng trống ngăn header đứng đầu tiên và che các section khác khi gán z-inđez và fix   -->
     </section>
-    <section class="carousel">
-        <div class="carousel__video">
-            <video autoplay muted>
-                <source src="../../img/productPage/video/carousel__video.mp4" type="video/mp4" />
-            </video>
-        </div>
-        <div class="row">
-            <div class="carousel__title col l-3 m-6 c-12">
-                <h2 class="carousel__title-name ">THE 4DFWD IS HERE</h2>
-                <div class="carousel__title-summary">
-                    <p>Cách mạng công nghệ cho trải nghiệm chạy bộ hoàn toàn mới. Tiếp tục tiến bước.</p>
+    <section class="product__viewing">
+        <div class="wide grid">
+            <div class="product__viewing-flex">
+                <div class="product__viewing-img">
+                    <img src="../../img/Products/shoe3.jpg" alt="">
+                </div>
+                <div class="product__viewing-purchasing">
+                    <h1>Name product</h1>
+                    <p>Originals</p>
+                    <button>Thêm vào giỏ hàng</button>
                 </div>
             </div>
-        </div>
-    </section>
-    <section class="products">
-        <div class="grid wide">
-            <h3>Tìm kiếm sản phẩm</h3>
-            <div class="products__search">
-                <select class="form-control" id="sortID">
-                    <option value="">Sắp xếp theo</option>
-                    <option value="AZ">A - Z</option>
-                    <option value="ZA">Z - A</option>
-                </select>
-                <select class="form-control" id="fitterID">
-                    <option value="">Nhãn hiệu</option>
-                    <option value="Adidas">Adidas</option>
-                    <option value="Nike">Nike</option>
-                </select>
-                <label for="search__bar"><i class="fas fa-search"></i></label>
-                <input id="search__bar" type="text" />
+            <div class="product__viewing-info">
+                <h1>Mô tả sản phẩm</h1>
+                <p>Kiểu dáng tốc độ. Cảm giác thoải mái. Đôi giày adidas này hé lộ tương lai với đế giữa 4D đột phá giúp
+                    hoàn trả năng lượng có kiểm soát. Với đôi giày này, bạn có thể ra đường cả ngày.</p>
             </div>
-            <div class="products__content">
-                <h1>Các sản phẩm</h1>
-                <div class="row" id="UI_sanPham">
-                    <div class="products__item col l-3 m-4 c-6">
-                        <div class="products__item-img" onclick="goToProductInfoPage()">
-                            <img src="../../img/Products/shoe3.jpg" alt="" />
+            <div class="product__viewing-rating">
+                <h1>Xếp hạng & đánh giá</h1>
+                <div class="comment__tab">
+                    <button class="tablink" onclick="openPage('Newest', this, '#ADFF2F')" id="defaultOpen">Mới nhất</button>
+                    <button class="tablink" onclick="openPage('Helpful', this, '#ADFF2F')">Hữu ích</button>
+                    <button class="tablink" onclick="openPage('About', this, '#ADFF2F')">Liên quan</button>
+
+                    <div id="Newest" class="tabcontent">
+                        <div class="tab__content-item">
+                            <div class="comment__float">
+                                <div class="star__given">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <div class="comment__info">
+                                    <h1>Quach Dieu Khanh</h1>
+                                    <p>Good price, besst</p>
+                                </div>
+                            </div>
+                            <div class="comment__written__time">
+                                <p>September 18, 2021</p>
+                            </div>
                         </div>
-                        <div class="products__item-info">
-                            <div onclick="goToProductInfoPage()">
-                                <p class="products__item-type">Originals</p>
-                                <h3 class="products__item-title">NMD_R1</h3>
-                                <p class="products__item-price">$3.400.000</p>
+                        <div class="tab__content-item">
+                            <div class="comment__float">
+                                <div class="star__given">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <div class="comment__info">
+                                    <h1>Quach Dieu Khanh</h1>
+                                    <p>Good price, besst</p>
+                                </div>
                             </div>
-                            <div class="product__item-favorite">
-                                <i class="far fa-heart" title="change__icon__when__click"></i>
+                            <div class="comment__written__time">
+                                <p>September 18, 2021</p>
                             </div>
-                            <div class="products__item-button">
-                                <button onclick="">add to cart</button>
+                        </div>
+                        <div class="tab__content-item">
+                            <div class="comment__float">
+                                <div class="star__given">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <div class="comment__info">
+                                    <h1>Quach Dieu Khanh</h1>
+                                    <p>Good price, besst</p>
+                                </div>
+                            </div>
+                            <div class="comment__written__time">
+                                <p>September 18, 2021</p>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="contact">
-        <div class="wide grid">
-            <div class="row">
-                <div class="contact-content col l-6">
-                    <h1>ĐĂNG KÝ NHẬN THÔNG TIN CẬP NHẬT VÀ ƯU ĐÃI QUA EMAIL</h1>
-                </div>
-                <div class="contact-btn col l-6">
-                    <button>Đăng kí nhận bản tin</button>
+
+                    <div id="Helpful" class="tabcontent">
+                        <h3>Contact</h3>
+                        <p>Get in touch, or swing by for a cup of coffee.</p>
+                    </div>
+
+                    <div id="About" class="tabcontent">
+                        <h3>About</h3>
+                        <p>Who we are and what we do.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -231,10 +250,7 @@
         </div>
     </footer>
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"
-    integrity="sha512-VZ6m0F78+yo3sbu48gElK4irv2dzPoep8oo9LEjxviigcnnnNvnTOJRSrIhuFk68FMLOpiNz+T77nNY89rnWDg=="
-    crossorigin="anonymous"></script>
-<script src="../../js/product.js"></script>
-<script src="../../js/main.js"></script>
-<script src="../../js/handle.js"></script>
+<!-- bootstrap -->
+<script src="../../Lib/js/handleSwitchTab.js"></script>
+
 </html>

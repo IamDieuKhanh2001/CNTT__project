@@ -173,6 +173,7 @@ header {
   transform: translateX(100%);
   box-sizing: border-box;
   padding: 10px;
+  overflow: auto;
 }
 
 .popup__input:checked ~ .cart__overlay {
@@ -196,7 +197,7 @@ header {
 
 .popup__cart-item{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   border-top: 1px solid rgba(0, 0, 0, 0.2);
   padding-top: 10px;
 }
@@ -216,7 +217,7 @@ header {
 .popup__cart-item-edit button{
   font-size: 20px;
   padding: 8px;
-  background-color: #F05D40;
+  background-color: black;
   color: white;
   border: none;
   border-radius: 4px;
@@ -224,12 +225,24 @@ header {
 .popup__cart-purchasing{
   box-sizing: border-box;
   margin-top: 20px;
+  border-top: 1px solid black;
+  padding-top: 10px;
+}
+.popup__cart-purchasing strong{
+  font-size: 20px;
 }
 .popup__cart-purchasing button{
   width: 100%;
   padding: 5px;
   background-color: greenyellow;
   border: none;
+  font-size: 25px;
+}
+.popup__cart-showEmpty{
+  display: block;
+}
+.popup__cart-showEmpty img{
+  width: 100%;
 }
 /* pc screen  */
 @media (max-width: 1536px) {

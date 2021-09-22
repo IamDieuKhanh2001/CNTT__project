@@ -1,0 +1,72 @@
+.product__viewing{
+    margin-top: 20px;
+}
+.product__viewing-flex{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+.product__viewing-img{
+    width: 30%;
+}
+.product__viewing-img img{
+    width: 100%;
+}
+.product__viewing-purchasing button{
+    padding: 15px;
+    width: 100%;
+    margin-top: 10px;
+    background-color: greenyellow;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+}
+.product__viewing-info{
+    margin: 20px 0;
+}
+.product__viewing-info h1{
+    padding-bottom: 20px;
+}
+.product__viewing-rating h1{
+    margin-bottom: 20px;
+}
+/* Style tab links */
+body, html {
+    height: 100%;
+    margin: 0;
+  }
+.tablink {
+    background-color: #DDDDDD;
+    color: black;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 25%;
+  }
+  
+  .tablink:hover {
+    background-color: #777;
+  }
+  
+  /* Style the tab content (and add height:100% for full page content) */
+  .tabcontent {
+    color: black;
+    display: none;
+    padding: 100px 300px 100px 0px;
+    height: 100%;
+  }
+  /* config tab content  */
+  .tab__content-item{
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+      padding-bottom: 20px;
+      margin-top: 10px;
+  }
+  .comment__float{
+      min-width: 250px;
+  }

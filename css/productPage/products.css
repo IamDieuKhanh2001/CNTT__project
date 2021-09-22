@@ -6,7 +6,7 @@
     padding-bottom: 5px;
     position: relative;
     box-sizing: border-box;
-    margin-bottom: 30px;
+    margin: 30px 0;
 }
 .products__item-img{
     width: 100%;
@@ -38,4 +38,8 @@
     background-color: greenyellow;
     border: none;
     border-radius: 5px;
+}
+.products__item-button button:hover{
+    background-color: orange;
+    transition: 0.4s;
 }

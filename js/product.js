@@ -11,25 +11,28 @@ class Product {
   }
   render() {
     return `
-      <div class="products__item col l-3 m-4 c-6">
-                        <div class="products__item-img">
-                            <img src="${this.image}" alt="" />
-                        </div>
-                        <div class="products__item-info">
-                            <p class="products__item-type">${this.type}</p>
-                            <h3 class="products__item-title">${this.name}</h3>
-                            <p class="products__item-price">${this.price}</p>
-                            <div class="product__item-favorite">
-                                <i class="far fa-heart" title="change__icon__when__click"></i>
-                            </div>
-                            <div class="products__item-button">
-                                <button onclick="addToCart(${this.id})">add to cart</button>
-                            </div>
-                        </div>
-                    </div>
+    <div class="products__item col l-3 m-4 c-6">
+    <div class="products__item-img" onclick="goToProductInfoPage()">
+        <img src="${this.image}" alt="" />
+    </div>
+    <div class="products__item-info">
+        <div onclick="goToProductInfoPage()">
+            <p class="products__item-type">${this.type}</p>
+            <h3 class="products__item-title">${this.name}</h3>
+            <p class="products__item-price">${this.price} VND</p>
+            <p>Số lượng còn: ${this.inventory}</p>
+        </div>
+        <div class="product__item-favorite">
+            <i class="far fa-heart" title="change__icon__when__click"></i>
+        </div>
+        <div class="products__item-button">
+            <button onclick="addToCart(${this.id})">add to cart</button>
+        </div>
+    </div>
+</div>
         `;
   }
-  cartRender(){
+  cartRender() {
     return `
     <div class="popup__cart-item">
                     <div class="popup__cart-item-img">
@@ -38,15 +41,18 @@ class Product {
                     <div class="popup__cart-item-des">
                         <div class="popup__cart-item-name">
                             <strong>${this.name}</strong>
+                            <br>
+                            <strong>${this.price * this.inventory} VND</strong>
                         </div>
                         <div class="popup__cart-item-quantity">
-                            <p>Số lượng: 1</p>
+                            <p>Số lượng x${this.inventory}</p>
                         </div>
                         <div class="popup__cart-item-edit">
-                            <button><i class="fas fa-trash-alt"></i></button>
+                            <button onclick="handleClickDecreaseQuantity(${this.id})"><i class="fas fa-minus"></i></button>
+                            <button onclick="handleClickIncreaseQuantity(${this.id})"><i class="fas fa-plus"></i></button>
                         </div>
                     </div>
                 </div>
-    `
+    `;
   }
 }
