@@ -31,8 +31,9 @@
                 <li class="nav__pc-link"><a href="#">Boys</a></li>
                 <li class="nav__pc-link"><a href="#">Girls</a></li>
                 <li class="nav__pc-link"><a href="#">About us</a></li>
-                <li class="nav__pc-link"><label for="popup__cart-checkbox" onclick="handleRenderCartUI()">My cart</label></li>
-                
+                <li class="nav__pc-link"><label for="popup__cart-checkbox" onclick="handleRenderCartUI()">My
+                        cart</label></li>
+
             </ul>
             <ul class="nav__pc-register">
                 <li class="nav__pc-link-register"><button>Đăng nhập</button></li>
@@ -52,7 +53,7 @@
         <!-- Giao diện nav mobile  -->
         <nav class="nav__mobile">
             <div class="logo__store__mobile">
-                <h1>The shoes store</h1>
+                <h1><a href="../../index.html">The shoes store</a></h1>
             </div>
             <ul class="nav__mobile-list">
                 <li class="nav__mobile-link"><a href="#">Men</a></li>
@@ -60,7 +61,8 @@
                 <li class="nav__mobile-link"><a href="#">Boys</a></li>
                 <li class="nav__mobile-link"><a href="#">Girls</a></li>
                 <li class="nav__mobile-link"><a href="#">About us</a></li>
-                <li class="nav__pc-link"><label for="popup__cart-checkbox">My cart</label></li>
+                <li class="nav__pc-link"><label for="popup__cart-checkbox" onclick="handleRenderCartUI()">My
+                        cart</label></li>
                 <li class="nav__mobile-link-register"><button>Đăng nhập</button></li>
                 <li class="nav__mobile-link-register">
                     <button style="background-color: red">Đăng kí</button>
@@ -109,6 +111,9 @@
             <div class="popup__cart-showEmpty" id="popup__cart-showEmpty">
                 <img src="../../img/emtyCartImg.png" alt="">
             </div>
+            <div class="popup__cart-purchase-result" id="popup__cart-result">
+                <h3>Thanh toán thành công, cảm ơn bạn !!</h3>
+            </div>
         </div>
         <!-- background bao phủ toàn màn hình khi cart list hiện  -->
         <!-- Nhấn vào overlay đưa element về vị trí cũ  -->
@@ -119,7 +124,7 @@
     </section>
     <section class="carousel">
         <div class="carousel__video">
-            <video autoplay muted>
+            <video autoplay muted loop>
                 <source src="../../img/productPage/video/carousel__video.mp4" type="video/mp4" />
             </video>
         </div>
@@ -134,23 +139,23 @@
     </section>
     <section class="products">
         <div class="grid wide">
-            <h3>Tìm kiếm sản phẩm</h3>
+            <h3 class="products__search-title">Tìm kiếm sản phẩm</h3>
             <div class="products__search">
-                <select class="form-control" id="sortID">
+                <select class="products__search-drop" id="js-sortID" onchange="handleSortProduct()">
                     <option value="">Sắp xếp theo</option>
                     <option value="AZ">A - Z</option>
                     <option value="ZA">Z - A</option>
                 </select>
-                <select class="form-control" id="fitterID">
-                    <option value="">Nhãn hiệu</option>
-                    <option value="Adidas">Adidas</option>
-                    <option value="Nike">Nike</option>
-                </select>
-                <label for="search__bar"><i class="fas fa-search"></i></label>
-                <input id="search__bar" type="text" />
+                <div class="products__search-input">
+                    <label for="search__bar"><i class="fas fa-search"></i></label>
+                    <input oninput="handleSearchInput()" id="search__bar" type="text" placeholder="Tìm kiếm"/>
+                </div>
             </div>
             <div class="products__content">
                 <h1>Các sản phẩm</h1>
+                <div class="search__result">
+                    <p id="js-show__search__result">Kết quả tìm kiếm cho: <b id="js-search__keyword">Từ khóa</b></p>
+                </div>
                 <div class="row" id="UI_sanPham">
                     <div class="products__item col l-3 m-4 c-6">
                         <div class="products__item-img" onclick="goToProductInfoPage()">
@@ -237,4 +242,5 @@
 <script src="../../js/product.js"></script>
 <script src="../../js/main.js"></script>
 <script src="../../js/handle.js"></script>
+
 </html>

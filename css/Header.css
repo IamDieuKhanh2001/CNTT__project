@@ -221,6 +221,11 @@ header {
   color: white;
   border: none;
   border-radius: 4px;
+  cursor: pointer;
+}
+.popup__cart-item-edit button:hover{
+  background-color: orange;
+  transition: 0.4s;
 }
 .popup__cart-purchasing{
   box-sizing: border-box;
@@ -237,12 +242,22 @@ header {
   background-color: greenyellow;
   border: none;
   font-size: 25px;
+  cursor: pointer;
+}
+.popup__cart-purchasing button:hover{
+  background-color: orange;
+  transition: 0.4s;
 }
 .popup__cart-showEmpty{
   display: block;
 }
 .popup__cart-showEmpty img{
   width: 100%;
+}
+.popup__cart-purchase-result {
+  background-color: greenyellow;
+  padding: 10px;
+  display: none;
 }
 /* pc screen  */
 @media (max-width: 1536px) {

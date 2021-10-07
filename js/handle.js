@@ -7,6 +7,7 @@ const handleRenderCartUI = () => {
   } else {
     document.getElementById("popup__cart-showEmpty").style.display = "block"; // Khi cartList trống, hình emty hiện lên
     document.getElementById("popup__cart-purchasing").style.display = "none"; //Nút mua ẩn
+    document.getElementById("popup__cart-result").style.display = "none"; //ẩn thoogn báo mua thành công
   }
 };
 // Them san pham vao my cart
@@ -15,7 +16,7 @@ const addToCart = (idProduct) => {
   //Cho item vao cart list voi inventory = 1
   let cartObjectPushIn;
   console.log(idProduct);
-  let objectHadInCart = getObjectIdInArray(idProduct, cartList); //Kiem tra san pham da co trong cartList chua
+  let objectHadInCart = checkObjectAppearedInArray(idProduct, cartList); //Kiem tra san pham da co trong cartList chua
   if (objectHadInCart == false) {
     //San pham chua co trong cartList, tao san pham trong cartList
     for (let item of productList) {
@@ -61,8 +62,74 @@ const handleClickDecreaseQuantity = (idProduct) => {
     increaseQuantityOfObject(idProduct, cartList, -1);
     renderCart();
   } else {
-    deleteObjectInArray(idProduct, cartList);
+    deleteObjectInArray(idProduct, cartList); //XÓa phần tử khỏi cartList khi quantity user nhấn về 0
     renderCart();
   }
   console.log(cartList);
+};
+//Xử lí mua
+//Khi sản phẩm trong cart nhỏ hơn số lượng sản phẩm trong db, tiến hành PUT sản phẩm với số lượng mới
+//Khi số lượng của sản phẩm đang bằng với số lượng trong db, DELETE sản phẩm trong db
+//Số lượng sau khi mua trong db còn = số lượng productList - số lượng trong cartList
+const handlePurchasing = () => {
+  let objectInventoryRemain;
+  for (let item of cartList) {
+    console.log(item);
+    objectInventoryRemain = getObjectInventoryInArray(item.id, productList);
+    if (item.inventory === objectInventoryRemain) {
+      deleteProduct(item.id);
+    } else {
+      updateQuantityProduct(item.id);
+    }
+    //else chỉnh sửa sản phẩm quantity
+  }
+  resetCartList();
+  fetchProducts();
+  alert("Thanh toán thành công");
+  document.getElementById("popup__cart-result").style.display = "block";
+  document.getElementById("popup__cart-purchasing").style.display = "none"; //Nút mua ẩn
+};
+//Xử lí event sort product
+//Đầu ra là productListSorted đã được sắp xếp
+const handleSortProduct = () => {
+  productListSorted = []; // reset productListSorted tránh lỗi
+  let sortValue = document.getElementById("js-sortID").value; //Dom id input
+  productListSorted = [...productList]; //Spread operator sang productListSorted
+  if (sortValue === "AZ") {
+    sortProduct(); //Sort AZ
+  } else {
+    sortProduct(); //Nếu người dùng chọn sort ZA, sort AZ rồi đảo mảng
+    productListSorted.reverse();
+  }
+  renderProducts(productListSorted); //Render UI product đã được sort
+};
+//ẩn hiện kết quả tìm kiếm và tên tìm kiếm lên UI
+const hideSearchResult = (hide = true, keyWord = "") => {
+  if (hide === false) {
+    document.getElementById("js-show__search__result").style.display = "block";
+    document.getElementById("js-search__keyword").innerHTML = keyWord;
+  }
+  if (keyWord == "") {
+    document.getElementById("js-show__search__result").style.display = "none";
+  }
+};
+//Xử lí tìm kiếm theo tên input
+const handleSearchInput = () => {
+  productListSorted = []; // reset productListSorted tránh lỗi
+  let inputValue = document.getElementById("search__bar").value;
+  inputValue.trim().toLowerCase();
+  for (let item of productList) {
+    let currentName = item.name.toLowerCase();
+    if (currentName.includes(inputValue)) {
+      productListSorted.push(item);
+    }
+  }
+  if (productListSorted.length !== 0) {
+    hideSearchResult(false, inputValue);
+    renderProducts(productListSorted);
+  } 
+  else {
+    hideSearchResult(true);
+    renderProducts();
+  }
 };

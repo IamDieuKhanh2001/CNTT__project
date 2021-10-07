@@ -21,17 +21,19 @@
         <!-- nav pc giao diện -->
         <div class="nav__icon">
             <div class="logo__store">
-                <h1><a href="#">The shoes store</a></h1>
+                <h1><a href="../../index.html">The shoes store</a></h1>
             </div>
         </div>
         <nav class="nav__pc">
             <ul class="nav__pc-list">
                 <li class="nav__pc-link"><a href="./pages/products/products.html">Men</a></li>
-                <li class="nav__pc-link"><a href="#">Women</a></li>
-                <li class="nav__pc-link"><a href="#">Boys</a></li>
-                <li class="nav__pc-link"><a href="#">Girls</a></li>
+                <li class="nav__pc-link"><a href="./pages/products/products.html">Women</a></li>
+                <li class="nav__pc-link"><a href="./pages/products/products.html">Boys</a></li>
+                <li class="nav__pc-link"><a href="./pages/products/products.html">Girls</a></li>
                 <li class="nav__pc-link"><a href="#">About us</a></li>
-                <li class="nav__pc-link"><label for="popup__cart-checkbox">My cart</label></li>
+                <li class="nav__pc-link"><label for="popup__cart-checkbox" onclick="handleRenderCartUI()">My
+                        cart</label></li>
+
             </ul>
             <ul class="nav__pc-register">
                 <li class="nav__pc-link-register"><button>Đăng nhập</button></li>
@@ -51,15 +53,16 @@
         <!-- Giao diện nav mobile  -->
         <nav class="nav__mobile">
             <div class="logo__store__mobile">
-                <h1>The shoes store</h1>
+                <h1><a href="../../index.html">The shoes store</a></h1>
             </div>
             <ul class="nav__mobile-list">
-                <li class="nav__mobile-link"><a href="#">Men</a></li>
-                <li class="nav__mobile-link"><a href="#">Women</a></li>
-                <li class="nav__mobile-link"><a href="#">Boys</a></li>
-                <li class="nav__mobile-link"><a href="#">Girls</a></li>
+                <li class="nav__mobile-link"><a href="./pages/products/products.html">Men</a></li>
+                <li class="nav__mobile-link"><a href="./pages/products/products.html">Women</a></li>
+                <li class="nav__mobile-link"><a href="./pages/products/products.html">Boys</a></li>
+                <li class="nav__mobile-link"><a href="./pages/products/products.html">Girls</a></li>
                 <li class="nav__mobile-link"><a href="#">About us</a></li>
-                <li class="nav__pc-link"><label for="popup__cart-checkbox">My cart</label></li>
+                <li class="nav__pc-link"><label for="popup__cart-checkbox" onclick="handleRenderCartUI()">My
+                        cart</label></li>
                 <li class="nav__mobile-link-register"><button>Đăng nhập</button></li>
                 <li class="nav__mobile-link-register">
                     <button style="background-color: red">Đăng kí</button>
@@ -72,46 +75,44 @@
         </nav>
         <div class="nav__color__line"></div>
         <!-- Check box xử lí ẩn hiện cart list  -->
-        <input type="checkbox" class="popup__input" id="popup__cart-checkbox" hidden/>
+        <input type="checkbox" class="popup__input" id="popup__cart-checkbox" hidden />
         <div class="popup__cart">
             <div class="popup__cart-title">
                 <h3>Giỏ hàng <i class="far fa-cart-plus"></i></h3>
                 <!-- labe xử lí check inpit , đưa element về vị trí cũ  -->
                 <label for="popup__cart-checkbox">Back<i class="fas fa-arrow-circle-right"></i></label>
             </div>
-            <div class="popup__cart-content">
-                <div class="popup__cart-item">
+            <div class="popup__cart-content" id="UI__cart">
+                <!-- cart UI render  -->
+                <!-- <div class="popup__cart-item">
                     <div class="popup__cart-item-img">
                         <img src="../../img/Products/shoe3.jpg" alt="">
                     </div>
                     <div class="popup__cart-item-des">
                         <div class="popup__cart-item-name">
                             <strong>Shoe 1</strong>
+                            <br>
+                            <strong>1000000 VND</strong>
                         </div>
                         <div class="popup__cart-item-quantity">
                             <p>Số lượng x1</p>
                         </div>
                         <div class="popup__cart-item-edit">
-                            <button><i class="fas fa-trash-alt"></i></button>
+                            <button><i class="fas fa-arrow-left"></i></button>
+                            <button><i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
-                </div>
-                <div class="popup__cart-item">
-                    <div class="popup__cart-item-img">
-                        <img src="../../img/Products/shoe3.jpg" alt="">
-                    </div>
-                    <div class="popup__cart-item-des">
-                        <div class="popup__cart-item-name">
-                            <strong>Shoe 1</strong>
-                        </div>
-                        <div class="popup__cart-item-quantity">
-                            <p>Số lượng x1</p>
-                        </div>
-                        <div class="popup__cart-item-edit">
-                            <button><i class="fas fa-trash-alt"></i></button>
-                        </div>
-                    </div>
-                </div>
+                </div> -->
+            </div>
+            <div class="popup__cart-purchasing" id="popup__cart-purchasing">
+                <strong id="popup__cart-priceSumption"></strong>
+                <button onclick="handlePurchasing()">Thanh toán</button>
+            </div>
+            <div class="popup__cart-showEmpty" id="popup__cart-showEmpty">
+                <img src="../../img/emtyCartImg.png" alt="">
+            </div>
+            <div class="popup__cart-purchase-result" id="popup__cart-result">
+                <h3>Thanh toán thành công, cảm ơn bạn !!</h3>
             </div>
         </div>
         <!-- background bao phủ toàn màn hình khi cart list hiện  -->
@@ -120,7 +121,9 @@
     </header>
     <section class="carousel">
         <div class="carousel__video">
-            <video src="./img/video1.mp4" autoplay muted></video>
+            <video autoplay muted loop>
+                <source src="./img/video1.mp4" type="video/mp4" />
+            </video>
         </div>
         <div class="row">
             <div class="carousel__title col l-3 m-6 c-12">
@@ -349,12 +352,15 @@
 
         </div>
     </section>
-
+    <!-- axios lib cdn  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"
+        integrity="sha512-VZ6m0F78+yo3sbu48gElK4irv2dzPoep8oo9LEjxviigcnnnNvnTOJRSrIhuFk68FMLOpiNz+T77nNY89rnWDg=="
+        crossorigin="anonymous"></script>
+    <!-- import js  -->
     <script src="./js/product.js"></script>
     <script src="./js/main.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"
-    integrity="sha512-VZ6m0F78+yo3sbu48gElK4irv2dzPoep8oo9LEjxviigcnnnNvnTOJRSrIhuFk68FMLOpiNz+T77nNY89rnWDg=="
-    crossorigin="anonymous"></script>
+    <script src="./js/handle.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="./Lib/owlCarousel/owl.carousel.min.js"></script>

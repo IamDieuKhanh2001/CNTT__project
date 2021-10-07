@@ -1,5 +1,6 @@
 let productList = [];
 let cartList = [];
+let productListSorted = [];
 
 //Xoa tat ca phan tu trong cartList
 const resetCartList = () => {
@@ -15,8 +16,9 @@ const deleteObjectInArray = (idProduct, objectArray) => {
     }
   }
 };
+
 //Kiem tra object id ton tai trong array
-const getObjectIdInArray = (idProduct, ObjectArray) => {
+const checkObjectAppearedInArray = (idProduct, ObjectArray) => {
   let objectHadIn = false;
   for (let item of ObjectArray) {
     if (item.id == idProduct) {
@@ -66,8 +68,10 @@ const renderProducts = (list = undefined) => {
       htmlContent += list[i].render();
     }
   }
-
-  document.getElementById("UI_sanPham").innerHTML = htmlContent;
+  let IdRender = document.getElementById("UI_sanPham");
+  if(IdRender !== null){
+    document.getElementById("UI_sanPham").innerHTML = htmlContent;
+  }
 };
 //function 3: map tu ds san pham cua backend ra thanh doi tuong san pham cua minh
 const mapData = (data) => {
@@ -85,7 +89,6 @@ const mapData = (data) => {
     );
     productList.push(myProductObject);
   }
-  console.log(productList);
 };
 //function: xóa sản phẩm khỏi database
 const deleteProduct = (idProduct) => {
@@ -95,24 +98,51 @@ const deleteProduct = (idProduct) => {
   })
     .then(function (res) {
       console.log(res);
-      fetchProducts();
+      fetchProducts(); //Load lại sản phẩm UI
     })
     .catch(function (err) {
       console.log(err);
     });
 };
-//Xử lí mua
-const handlePurchasing = () => {
-  for (let i of cartList) {
-    console.log(i);
-    deleteProduct(i.id);
-  }
-  resetCartList();
-  fetchProducts();
-  alert("Thanh toán thành công");
+// Function: Sửa số lượng sản phẩm
+//Khi sản phẩm trong cart nhỏ hơn số lượng sản phẩm trong db, tiến hành PUT sản phẩm với số lượng mới
+//Số lượng sau khi mua trong db còn = số lượng productList - số lượng trong cartList
+const updateQuantityProduct = (idProduct) => {
+  let updateObject;//Sản phẩm khi khách hàng mua
+  console.log("update product");
+  for (let item of cartList) {//Tìm trong cartList object user mua
+    if (item.id == idProduct) {
+      const value = item;
+      updateObject = { ...value };//Clone phần tử object user mua
+    }
+  }//Chỉnh sửa lại thuộc tính inventory của sản phẩm khách mua
+  updateObject.inventory = getObjectInventoryInArray(idProduct, productList) - getObjectInventoryInArray(idProduct, cartList);
+  axios({//Gọi axios sửa sản phẩm trên db
+    url: `https://61482f59e950620017779c8b.mockapi.io/products/${idProduct}`,
+    method: "PUT",
+    data: updateObject//sản phẩm sửa
+  })
+    .then(function (res) {
+      fetchProducts();//Sau khi call api sửa xong, render lại UI
+    })
 };
 const goToProductInfoPage = () => {
   window.location.href = "../productInfo/productInfo.html";
+};
+//Kiem tra san pham cua object cartList bằng giá trị object nó trên productList không
+const checkInventoryLimitReached = (idProduct) => {
+  let objectInventoryLimitReached = true;
+  productObjectInventoryNumber = getObjectInventoryInArray(
+    idProduct,
+    productList
+  ); //Lấy quantity của object tại productList
+  cartObjectInventoryNumber = getObjectInventoryInArray(idProduct, cartList); //Lấy quantity của object tại cartList
+  if (productObjectInventoryNumber === cartObjectInventoryNumber) {
+    objectInventoryLimitReached = true; //quantity bằng nhau
+  } else {
+    objectInventoryLimitReached = false; //quantity chưa bằng nhau
+  }
+  return objectInventoryLimitReached;
 };
 //Tang inventory trong array product
 const increaseQuantityOfObject = (
@@ -120,17 +150,25 @@ const increaseQuantityOfObject = (
   objectArray,
   increaseNumber = 1
 ) => {
+  let inventoryLimitReached;
   for (let item of objectArray) {
     if (item.id == idProduct) {
       console.log("cart");
       console.log(item);
-      item.inventory += increaseNumber;
+      inventoryLimitReached = checkInventoryLimitReached(idProduct); //Kiem tra quantity có bằng với trong productList không
+      if (!inventoryLimitReached || increaseNumber < 0) {
+        //xử lí thêm giá trị khi chưa đến giới hạn và số thêm mỗi lần là dương
+        item.inventory += increaseNumber; //Hoặc increaseNumber truyền vào âm, giảm quantity sản phẩm trong cart, không cần xét đã đạt giới hạn hay chưa
+      } else {
+        alert("sản phẩm đã đạt giới hạn thêm");
+      }
       console.log(item);
       break;
-      //Tim xong san pham co id da chon, thoat lap
+      //Xử lí xong san pham co id da chon, thoat lap
     }
   }
 };
+//Lấy tổng giá trị thuộc tính price của các object trong cartList
 const getSumPriceProducts = (objectArray) => {
   let priceSumption = 0;
   for (let item of objectArray) {
@@ -152,9 +190,20 @@ const renderCart = () => {
   ).innerHTML = `Tổng tiền: ${priceSumption} VND`;
   document.getElementById("UI__cart").innerHTML = htmlContent;
 };
+//Sắp xếp sản phẩm theo tên A-Z
+const sortProduct = () => {
+  productListSorted.sort(function(a,b){//Đặt quy cách sort từ A-Z
+    let firstProductName = a.name.toLowerCase();//Đồng nhất tên 1 và 2 của 2 product list chuyển về lower 
+    let secondProductName = b.name.toLowerCase();
+    if(firstProductName > secondProductName){
+      return 1;
+    }else if(firstProductName < secondProductName){
+      return -1;
+    }return 0;
+  })
+}
 //Compiling methods
 const main = () => {
-  //Bat dau chuong trinh
   fetchProducts(); //Lay san pham dua vao UI
 };
-main();
+main();  //Bat dau chuong trinh
